@@ -19,6 +19,8 @@ class MyApp extends StatelessWidget {
 }
 
 class DicePage extends StatelessWidget {
+  var leftDiceNumber = 5;
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -29,7 +31,7 @@ class DicePage extends StatelessWidget {
               onPressed: () {
                 print('Left');
               },
-              child: Image.asset('images/dice1.png'),
+              child: Image.asset('images/dice$leftDiceNumber.png'),
             ),
           ),
           Expanded(
