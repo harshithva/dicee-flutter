@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 void main() => runApp(MyApp());
-final rnd = new Random();
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -28,9 +27,13 @@ class DicePage extends StatefulWidget {
 class _DicePageState extends State<DicePage> {
   int leftDiceNumber = 1;
   int rightDiceNumber = 1;
-
   int min = 1;
   int max = 6;
+
+  void changeDicesNumber() {
+    leftDiceNumber = min + Random().nextInt(max - min);
+    rightDiceNumber = min + Random().nextInt(max - min);
+  }
 
   // var leftDiceNumber = 5;
   @override
@@ -42,7 +45,7 @@ class _DicePageState extends State<DicePage> {
             child: FlatButton(
               onPressed: () {
                 setState(() {
-                  leftDiceNumber = min + rnd.nextInt(max - min);
+                  changeDicesNumber();
                 });
               },
               child: Image.asset('images/dice$leftDiceNumber.png'),
@@ -52,7 +55,7 @@ class _DicePageState extends State<DicePage> {
             child: FlatButton(
               onPressed: () {
                 setState(() {
-                  rightDiceNumber = min + rnd.nextInt(max - min);
+                  changeDicesNumber();
                 });
               },
               child: Image.asset('images/dice$rightDiceNumber.png'),
